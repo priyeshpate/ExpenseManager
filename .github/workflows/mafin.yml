@@ -7,20 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lints:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Upload html test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lints.html
-          path: app/build/reports/lint-results-debug.html
-
   unit-test:
-    needs: [lints]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
